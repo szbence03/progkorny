@@ -21,12 +21,12 @@ public class FejlesztoService {
         return fejlesztoRepository.findAll();
     }
 
-    public void save(Fejleszto fejleszto) {
-         fejlesztoRepository.save(fejleszto);
+    public Fejleszto save(Fejleszto fejleszto) {
+        return fejlesztoRepository.save(fejleszto);
     }
 
-    public void edit(Fejleszto fejleszto) {
-        fejlesztoRepository.save(fejleszto);
+    public Fejleszto edit(Fejleszto fejleszto) {
+        return fejlesztoRepository.save(fejleszto);
     }
 
     public Fejleszto findById(UUID id) {

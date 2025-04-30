@@ -20,12 +20,12 @@ public class JatekService {
         return jatekRepository.findAll();
     }
 
-    public void save(Jatek jatek) {
-        jatekRepository.save(jatek);
+    public Jatek save(Jatek jatek) {
+       return jatekRepository.save(jatek);
     }
 
-    public void edit(Jatek jatek) {
-        jatekRepository.save(jatek);
+    public Jatek edit(Jatek jatek) {
+        return jatekRepository.save(jatek);
     }
 
     public Jatek findById(UUID id) {
