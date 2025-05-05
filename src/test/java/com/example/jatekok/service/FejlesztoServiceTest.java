@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +32,7 @@ public class FejlesztoServiceTest {
         List<Fejleszto> expectedFejlesztok = List.of(
             Fejleszto.builder()
                     .id(UUID.randomUUID())
-                    .nev("Teszt Játék")
+                    .nev("Fejleszt? neve")
                     .alapitasiEv(LocalDate.now())
                     .build(),
             Fejleszto.builder()
@@ -53,7 +53,7 @@ public class FejlesztoServiceTest {
        Fejleszto expectedFejleszto =
                 Fejleszto.builder()
                         .id(UUID.randomUUID())
-                        .nev("Teszt Játék")
+                        .nev("Fejleszt? neve")
                         .alapitasiEv(LocalDate.now())
                         .build();
        Optional<Fejleszto> optionalFejleszto = Optional.of(expectedFejleszto);
@@ -73,5 +73,45 @@ public class FejlesztoServiceTest {
 
         Assertions.assertThrows(EntityNotFoundException.class, ()-> fejlesztoTest.findById(id));
 
+    }
+
+    @Test
+    void deleteByIdHappyPath() {
+
+        UUID id = UUID.randomUUID();
+
+        fejlesztoTest.deleteById(id);
+
+        verify(fejlesztoRepositoryMock).deleteById(id);
+    }
+
+    @Test
+    void saveTest() {
+        Fejleszto expectedFejleszto =
+                Fejleszto.builder()
+                        .id(UUID.randomUUID())
+                        .nev("Fejleszt? neve")
+                        .alapitasiEv(LocalDate.now())
+                        .build();
+        when(fejlesztoRepositoryMock.save(expectedFejleszto)).thenReturn(expectedFejleszto);
+
+        Fejleszto result = fejlesztoTest.save(expectedFejleszto);
+
+        Assertions.assertEquals(expectedFejleszto, result);
+    }
+
+    @Test
+    void editTest() {
+        Fejleszto expectedFejleszto =
+                Fejleszto.builder()
+                        .id(UUID.randomUUID())
+                        .nev("Fejleszt? neve")
+                        .alapitasiEv(LocalDate.now())
+                        .build();
+        when(fejlesztoRepositoryMock.save(expectedFejleszto)).thenReturn(expectedFejleszto);
+
+        Fejleszto result = fejlesztoTest.save(expectedFejleszto);
+
+        Assertions.assertEquals(expectedFejleszto, result);
     }
 }
