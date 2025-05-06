@@ -21,7 +21,7 @@ public class JatekService {
     }
 
     public Jatek save(Jatek jatek) {
-       return jatekRepository.save(jatek);
+        return jatekRepository.save(jatek);
     }
 
     public Jatek edit(Jatek jatek) {
@@ -30,10 +30,10 @@ public class JatekService {
 
     public Jatek findById(UUID id) {
         Optional<Jatek> optionalJatek = jatekRepository.findById(id);
-        if(optionalJatek.isPresent()) {
+        if (optionalJatek.isPresent()) {
             return optionalJatek.get();
         } else {
-            throw new EntityNotFoundException("Nem létezik a" + id + " id-vel rendelkező elem!");
+            throw new EntityNotFoundException("Nem létezik a keresett elem!");
         }
     }
 

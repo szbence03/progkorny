@@ -33,19 +33,19 @@ public class JatekServiceTest {
         List<Jatek> expectedJatekok = List.of(
             Jatek.builder()
                     .id(UUID.randomUUID())
-                    .nev("Teszt játék")
+                    .nev("Teszt jatek")
                     .kiadasiEv(LocalDate.now())
                     .mufaj("RPG")
                     .build(),
                 Jatek.builder()
                         .id(UUID.randomUUID())
-                        .nev("Teszt játék 2")
+                        .nev("Teszt jatek 2")
                         .kiadasiEv(LocalDate.now())
                         .mufaj("FPS")
                         .build(),
                 Jatek.builder()
                         .id(UUID.randomUUID())
-                        .nev("Teszt játék 3")
+                        .nev("Teszt jatek 3")
                         .kiadasiEv(LocalDate.now())
                         .mufaj("sandbox")
                         .build()
@@ -63,7 +63,7 @@ public class JatekServiceTest {
         Jatek expectedJatek =
                 Jatek.builder()
                         .id(UUID.randomUUID())
-                        .nev("Teszt játék")
+                        .nev("Teszt jatek")
                         .kiadasiEv(LocalDate.now())
                         .mufaj("RPG")
                         .build();
@@ -91,7 +91,7 @@ public class JatekServiceTest {
     void saveTest() {
        Jatek expectedJatek = Jatek.builder()
                 .id(UUID.randomUUID())
-                .nev("Teszt játék")
+                .nev("Teszt jatek")
                 .kiadasiEv(LocalDate.now())
                 .mufaj("RPG")
                 .build();
@@ -106,7 +106,7 @@ public class JatekServiceTest {
     void editTest() {
         Jatek expectedJatek = Jatek.builder()
                 .id(UUID.randomUUID())
-                .nev("Teszt játék")
+                .nev("Teszt jatek")
                 .kiadasiEv(LocalDate.now())
                 .mufaj("RPG")
                 .build();

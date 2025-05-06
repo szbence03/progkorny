@@ -32,12 +32,12 @@ public class FejlesztoServiceTest {
         List<Fejleszto> expectedFejlesztok = List.of(
             Fejleszto.builder()
                     .id(UUID.randomUUID())
-                    .nev("Fejleszt? neve")
+                    .nev("Fejleszto neve")
                     .alapitasiEv(LocalDate.now())
                     .build(),
             Fejleszto.builder()
                         .id(UUID.randomUUID())
-                        .nev("Teszt Játék 2. Electric Boogalo")
+                        .nev("Teszt Jatek 2. Electric Boogalo")
                         .alapitasiEv(LocalDate.now())
                         .build()
         );

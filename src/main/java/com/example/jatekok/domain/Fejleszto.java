@@ -1,13 +1,11 @@
 package com.example.jatekok.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Columns;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -29,7 +27,9 @@ public class Fejleszto {
     @Column(name = "alapitasi_ev")
     private LocalDate alapitasiEv;
 
-    @OneToMany(mappedBy = "fejleszto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "fejleszto",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     @JsonManagedReference
     private List<Jatek> jatekok;
 }

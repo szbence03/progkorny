@@ -1,9 +1,7 @@
 package com.example.jatekok.controller;
 
 import com.example.jatekok.domain.Fejleszto;
-import com.example.jatekok.domain.Jatek;
 import com.example.jatekok.service.FejlesztoService;
-import com.example.jatekok.service.JatekService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +17,11 @@ public class FejlesztoController {
     @Autowired
     private FejlesztoService fejlesztoService;
 
-    
+
     @GetMapping("/list")
     public String getAllFejleszto(Model model) {
         List<Fejleszto> fejlesztok = fejlesztoService.getAllFejleszto();
-        model.addAttribute("fejlesztok",fejlesztok);
+        model.addAttribute("fejlesztok", fejlesztok);
         return "fejlesztok/fejlesztok";
     }
 

@@ -23,14 +23,14 @@ public class JatekController {
     @GetMapping("/list")
     public String getAllJatek(Model model) {
         List<Jatek> jatekok = jatekService.getAllJatek();
-        model.addAttribute("jatekok",jatekok);
+        model.addAttribute("jatekok", jatekok);
         return "jatekok/jatekok";
     }
 
     @GetMapping("/new")
     public String createNewJatek(Model model) {
         model.addAttribute("jatek", new Jatek());
-        model.addAttribute("fejleszto",fejlesztoService.getAllFejleszto());
+        model.addAttribute("fejleszto", fejlesztoService.getAllFejleszto());
         return "jatekok/jatekok-create";
     }
 
@@ -44,7 +44,7 @@ public class JatekController {
     public String editJatek(@PathVariable UUID id, Model model) {
         Jatek jatek = jatekService.findById(id);
         model.addAttribute("jatek", jatek);
-        model.addAttribute("fejleszto",fejlesztoService.getAllFejleszto());
+        model.addAttribute("fejleszto", fejlesztoService.getAllFejleszto());
         return "jatekok/jatek-edit";
     }
 
