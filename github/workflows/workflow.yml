@@ -24,6 +24,13 @@ jobs:
       - name: Verify code
         run: mvn verify
 
+      - name: Package
+        run: mvn package
 
+      - name: Upload packaged code
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: target/jatekok-0.0.1-SNAPSHOT.jar
 
 
