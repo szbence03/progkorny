@@ -53,7 +53,7 @@ public class FejlesztoServiceTest {
        Fejleszto expectedFejleszto =
                 Fejleszto.builder()
                         .id(UUID.randomUUID())
-                        .nev("Fejleszt? neve")
+                        .nev("Fejleszto neve")
                         .alapitasiEv(LocalDate.now())
                         .build();
        Optional<Fejleszto> optionalFejleszto = Optional.of(expectedFejleszto);
@@ -90,7 +90,7 @@ public class FejlesztoServiceTest {
         Fejleszto expectedFejleszto =
                 Fejleszto.builder()
                         .id(UUID.randomUUID())
-                        .nev("Fejleszt? neve")
+                        .nev("Fejleszto neve")
                         .alapitasiEv(LocalDate.now())
                         .build();
         when(fejlesztoRepositoryMock.save(expectedFejleszto)).thenReturn(expectedFejleszto);
@@ -105,7 +105,7 @@ public class FejlesztoServiceTest {
         Fejleszto expectedFejleszto =
                 Fejleszto.builder()
                         .id(UUID.randomUUID())
-                        .nev("Fejleszt? neve")
+                        .nev("Fejleszto neve")
                         .alapitasiEv(LocalDate.now())
                         .build();
         when(fejlesztoRepositoryMock.save(expectedFejleszto)).thenReturn(expectedFejleszto);
