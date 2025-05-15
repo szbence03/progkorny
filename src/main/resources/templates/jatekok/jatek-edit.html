@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Videojáték módosítása</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Videojáték módosítása</h1>
+  </header>
+
+  <main>
+    <form th:action="@{/jatekok/edit}" th:object="${jatek}" method="post">
+      <input type="hidden" th:field="*{id}" />
+
+      <label for="nev">Cím:</label>
+      <input type="text" id="nev" name="nev" th:field="*{nev}" placeholder="Játék címe" required />
+
+      <label for="mufaj">Műfaj:</label>
+      <input type="text" id="mufaj" name="mufaj" th:field="*{mufaj}" placeholder="Műfaj" required /><br/>
+
+      <label for="kiadasiEv">Kiadás ideje:</label>
+      <input type="date" id="kiadasiEv" name="kiadasiEv" th:field="*{kiadasiEv}" required /><br/>
+
+      <label for="fejleszto.id">Fejlesztő:</label>
+      <select th:field="*{fejleszto.id}" >
+        <option th:each="f : ${fejleszto}" th:value="${f.id}" th:text="${f.nev}">Fejlesztő neve:</option>
+      </select><br/>
+
+      <button type="submit" class="btn">Mentés</button>
+    </form>
+    <a href="/jatekok/list" class="btn">Mégse</a>
+  </main>
+</div>
+</body>
+</html>

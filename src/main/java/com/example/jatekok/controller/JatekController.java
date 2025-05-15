@@ -4,13 +4,14 @@ import com.example.jatekok.domain.Jatek;
 import com.example.jatekok.service.FejlesztoService;
 import com.example.jatekok.service.JatekService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
-@RestController()
+@Controller
 @RequestMapping("jatekok")
 public class JatekController {
 
@@ -51,6 +52,12 @@ public class JatekController {
     @PostMapping("/edit")
     public String updateJatek(@ModelAttribute Jatek jatek) {
         jatekService.edit(jatek);
+        return "redirect:/jatekok/list";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteJatek(@PathVariable UUID id) {
+        jatekService.deleteById(id);
         return "redirect:/jatekok/list";
     }
 

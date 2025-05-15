@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Fejlesztő módosítása</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Fejlesztő módosítása</h1>
+  </header>
+
+  <main>
+    <form th:action="@{/fejlesztok/edit}" th:object="${fejleszto}" method="post">
+      <input type="hidden" th:field="*{id}" />
+
+      <label for="nev">Név:</label>
+      <input type="text" id="nev" name="nev" th:field="*{nev}" placeholder="Fejlesztő neve" required /><br/>
+
+      <label for="alapitasiEv">Alapítás ideje:</label>
+      <input type="date" id="alapitasiEv" name="alapitasiEv" th:field="*{alapitasiEv}" required /><br/>
+
+      <button type="submit" class="btn">Mentés</button>
+    </form>
+    <a href="/fejlesztok/list" class="btn">Mégse</a>
+  </main>
+</div>
+</body>
+</html>
