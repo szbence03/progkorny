@@ -107,4 +107,13 @@ public class JatekControllerTest {
         verify(serviceMock).edit(jatek);
         assertEquals("redirect:/jatekok/list", result);
     }
+
+    @Test
+    void deleteJatekTest() {
+        UUID id = UUID.randomUUID();
+
+        controllerTest.deleteJatek(id);
+
+        verify(serviceMock).deleteById(id);
+    }
 }

@@ -99,4 +99,13 @@ class FejlesztoControllerTest {
         verify(serviceMock).edit(fejleszto);
         assertEquals("redirect:/fejlesztok/list", result);
     }
+
+    @Test
+    void deleteFejlesztoTest() {
+        UUID id = UUID.randomUUID();
+
+        controllerTest.deleteFejleszto(id);
+
+        verify(serviceMock).deleteById(id);
+    }
 }

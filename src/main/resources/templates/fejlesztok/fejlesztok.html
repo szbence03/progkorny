@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Fejlesztők Listája</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Fejlesztők listája</h1>
+  </header>
+
+  <main>
+    <a href="/fejlesztok/new" class="btn">Új fejlesztő felvétele</a> <!-- Button for Creating a New Author -->
+
+    <table class="styled-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Név</th>
+        <th>Alapítva</th>
+        <th>Videojátékok</th>
+        <th>Műveletek</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr th:each="fejleszto : ${fejlesztok}">
+        <td th:text="${fejleszto.id}"> </td>
+        <td th:text="${fejleszto.nev}"> </td>
+        <td th:text="${fejleszto.alapitasiEv}"> </td>
+        <td>
+          <ul>
+            <li th:each="jatek : ${fejleszto.jatekok}" th:text="${jatek.nev}"> </li>
+          </ul>
+        </td>
+        <td>
+          <a th:href="@{/fejlesztok/edit/{id}(id=${fejleszto.id})}" class="btn-edit">Edit</a>
+          <form th:action="@{/fejlesztok/delete/{id}(id=${fejleszto.id})}" method="post" style="display:inline;">
+            <button type="submit" class="btn-delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <a href="/" class="btn">Főoldal</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025</p>
+  </footer>
+</div>
+</body>
+</html>

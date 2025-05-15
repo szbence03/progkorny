@@ -3,15 +3,15 @@ package com.example.jatekok.controller;
 import com.example.jatekok.domain.Fejleszto;
 import com.example.jatekok.service.FejlesztoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
-@RestController()
+@Controller
 @RequestMapping("fejlesztok")
-
 public class FejlesztoController {
 
     @Autowired
@@ -47,6 +47,12 @@ public class FejlesztoController {
     @PostMapping("/edit")
     public String updateFejleszto(@ModelAttribute Fejleszto fejleszto) {
         fejlesztoService.edit(fejleszto);
+        return "redirect:/fejlesztok/list";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteFejleszto(@PathVariable UUID id) {
+        fejlesztoService.deleteById(id);
         return "redirect:/fejlesztok/list";
     }
 }

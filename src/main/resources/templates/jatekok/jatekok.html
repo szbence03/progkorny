@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Videojátékok</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Videojátékok listája</h1>
+  </header>
+
+  <main>
+    <a href="/jatekok/new" class="btn">Új videojáték hozzáadása</a>
+
+    <table class="styled-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cím</th>
+        <th>Műfaj</th>
+        <th>Kiadás ideje</th>
+        <th>Fejlesztő</th>
+        <th>Műveletek</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="jatek : ${jatekok}">
+        <td th:text="${jatek.id}"> </td>
+        <td th:text="${jatek.nev}"> </td>
+        <td th:text="${jatek.mufaj}"> </td>
+        <td th:text="${jatek.kiadasiEv}"> </td>
+        <td th:text="${jatek.fejleszto.nev}"> </td>
+        <td>
+          <a th:href="@{/jatekok/edit/{id}(id=${jatek.id})}" class="btn-edit">Edit</a> <!-- Edit Button -->
+          <form th:action="@{/jatekok/delete/{id}(id=${jatek.id})}" method="post" style="display:inline;">
+            <button type="submit" class="btn-delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <a href="/" class="btn">Főoldal</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 </p>
+  </footer>
+</div>
+</body>
+</html>
